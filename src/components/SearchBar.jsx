@@ -1,13 +1,12 @@
 const SearchBar = () => {
   return (
     <>
-      <div>
+      <div className="w-full">
         <label for="search">
-          <i className="fa-solid fa-magnifying-glass text-slate-400 mr-2" />
           <input
             id="search"
-            placeholder="Virginia, Usa"
-            className="p-2 rounded"
+            placeholder="Try Zipcode or City"
+            className="p-2 rounded w-full bg-sky-100"
           />
         </label>
       </div>
