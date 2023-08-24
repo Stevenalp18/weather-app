@@ -6,7 +6,7 @@ const SearchBar = () => {
           <input
             id="search"
             placeholder="Try Zipcode or City"
-            className="p-2 rounded w-full bg-sky-100"
+            className="p-2 rounded-xl w-full bg-sky-100"
           />
         </label>
       </div>
