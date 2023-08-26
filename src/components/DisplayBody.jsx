@@ -1,9 +1,15 @@
-import ReduxSample from "./ReduxSample";
+// import ReduxSample from "./ReduxSample";
+import { useSelector } from "react-redux";
 
 const DisplayBody = () => {
+  const location = useSelector((state) => state.location.value);
   return (
     <div className="border-2 border-slate-400 my-auto lg:w-2/3 rounded-xl px-4 py-10 mt-4 mx-4 lg:mx-auto">
-      <ReduxSample />
+      {/* <ReduxSample /> */}
+      <div className="m-auto text-center bg-slate-200 mb-4 text-2xl font-bold">
+        <div className="text-xl font-normal">Location:</div>
+        {location}
+      </div>
       <div className="bg-sky-100 py-6 mb-10 rounded-xl flex flex-col lg:flex-row flex-wrap lg:flex-nowrap lg:justify-between text-center px-4">
         <div className="my-auto flex flex-col lg:flex-row lg:gap-8">
           <div className="my-auto text-6xl">48º</div>
