@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { apiKey } from "../data/key";
+import { currentApiExt, baseUrl, queryApiExt } from "../data/data";
 
 const CurrentWeatherCard = () => {
   const location = useSelector((state) => state.location.value);
-
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
@@ -12,7 +13,7 @@ const CurrentWeatherCard = () => {
     const fecthApi = async (location) => {
       try {
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/todos/${location}`
+          `${baseUrl}${currentApiExt}${apiKey}${queryApiExt}${location}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -21,23 +22,24 @@ const CurrentWeatherCard = () => {
         setLoading(false);
         setData(data);
       } catch (error) {
-        setError(error);
         setLoading(false);
+        setError(error);
       }
     };
 
     fecthApi(location);
   }, [location]);
   console.log(data);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  return <div className="bg-slate-200 p-4 rounded-xl text-lg">{}</div>;
+  return (
+    <div className="bg-slate-200 p-4 rounded-xl text-lg">
+      <div>{!data ? "Hi I am title" : JSON.stringify(data.location)}</div>
+      {/* <div>{!data ? "Hi I am data" : data.current}</div> */}
+    </div>
+  );
 };
 export default CurrentWeatherCard;
 
