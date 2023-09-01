@@ -8,7 +8,7 @@ const DisplayBody = () => {
     <div className="border-2 border-slate-400 my-auto lg:w-2/3 rounded-xl px-4 py-10 mt-4 mx-4 lg:mx-auto">
       {/* <ReduxSample /> */}
 
-      <div className="m-auto text-center bg-slate-200 mb-4 text-2xl font-bold">
+      <div className="m-auto text-center bg-slate-200 mb-4 text-2xl font-bold rounded-xl py-2">
         <div className="text-xl font-normal">Location:</div>
         {location}
       </div>
