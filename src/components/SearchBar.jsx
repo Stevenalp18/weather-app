@@ -14,12 +14,17 @@ const SearchBar = () => {
           <input
             ref={locationInput}
             placeholder="Try Zipcode or City"
-            className="p-2 rounded-xl bg-sky-100 w-full "
+            className="py-2 px-4 rounded-xl bg-gray-800 w-full "
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                dispatch(updateLocation(locationInput.current.value));
+              }
+            }}
           />
         </div>
         <div className="w-3/12 md:w-2/12">
           <button
-            className="bg-sky-100 p-2 rounded-xl"
+            className="bg-gray-800 py-2 px-4 rounded-xl font-semibold"
             onClick={() => {
               dispatch(updateLocation(locationInput.current.value));
             }}
