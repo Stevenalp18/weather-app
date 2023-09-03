@@ -20,32 +20,32 @@ const DisplayBody = () => {
             <div className="my-2 my-auto text-3xl text-center w-1/3">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Wednesday</div>
             <div className="my-2 my-auto text-3xl w-1/3 ">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Thursday</div>
             <div className="my-2 my-auto text-3xl w-1/3 ">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Friday</div>
             <div className="my-2 my-auto text-3xl w-1/3">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Saturday</div>
             <div className="my-2 my-auto text-3xl w-1/3">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Sunday</div>
             <div className="my-2 my-auto text-3xl w-1/3">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
           </div>
-          <div className="border-b-[1px] rounded w-full text-center flex justify-between my-auto py-4 w-11/12 m-auto">
+          <div className="border-b-[1px] rounded text-center flex justify-between my-auto py-4 w-11/12 m-auto">
             <div className="my-auto w-1/3">Monday</div>
             <div className="my-2 my-auto text-3xl w-1/3">Sunny</div>
             <div className="text-3xl my-auto w-1/3">56º</div>
