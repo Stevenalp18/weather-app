@@ -53,13 +53,15 @@ const CurrentWeatherCard = () => {
               {country}
             </div>
             <div className="flex flex-col justify-center w-11/12 m-auto">
-              <div className="m-auto w-48">
+              <div className="m-auto w-24 lg:w-36">
                 <img src={icon} className="my-auto -ml-2 w-full" />
               </div>
-              <div className="text-7xl my-auto">{Math.ceil(temp_f)}º</div>
+              <div className="text-4xl lg:text-5xl my-auto">
+                {Math.ceil(temp_f)}º
+              </div>
             </div>
           </div>
-          <div className="rounded-xl bg-gray-800 px-4 py-8 ">
+          <div className="rounded-xl bg-gray-800 px-4 py-8 -mt-14">
             <div className="text-2xl font-semibold mb-10">
               Weather Conditions
             </div>

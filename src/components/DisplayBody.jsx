@@ -8,7 +8,7 @@ const DisplayBody = () => {
     <div className="my-auto lg:w-2/3 rounded-xl px-4 py-10 mx-4 lg:mx-auto">
       {/* <ReduxSample /> */}
 
-      <div className="m-auto text-center mb-4 text-2xl font-bold rounded-xl py-2">
+      <div className="m-auto text-center mb-4 -mt-8 text-2xl font-bold rounded-xl py-2">
         <div className="text-xl font-normal">Location Inputted:</div>
         {location}
       </div>
