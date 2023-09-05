@@ -26,7 +26,7 @@ const CurrentWeatherComponent = () => {
       }
     };
 
-    // fecthApi(location);
+    fecthApi(location);
   }, [location]);
 
   function cardOutput() {
@@ -44,17 +44,17 @@ const CurrentWeatherComponent = () => {
 
       return (
         //     {date.toLocaleDateString("en-US")}
-        <div className="flex flex-col gap-6 text-center">
+        <div className="flex flex-col gap-4 text-center">
           <div className="flex flex-col justify-center lg:my-auto py-8 rounded-xl bg-gray-800">
-            <div className="text-2xl font-semibold mb-10">
+            <div className="text-2xl font-semibold m6-10">
               {name}, {region}, <br />
               {country}
             </div>
-            <div className="flex flex-col justify-center w-11/12 m-auto">
-              <div className="m-auto w-24 lg:w-36">
-                <img src={icon} className="my-auto -ml-2 w-full" />
+            <div className="flex flex-col lg:flex-row justify-center w-11/12 m-auto">
+              <div className="m-auto lg:w-1/2 w-32 lg:w-28">
+                <img src={icon} className="my-auto w-full" />
               </div>
-              <div className="text-4xl lg:text-5xl my-auto">
+              <div className="text-4xl lg:text-5xl my-auto lg:w-1/2">
                 {Math.ceil(temp_f)}º
               </div>
             </div>
@@ -107,10 +107,15 @@ const CurrentWeatherComponent = () => {
   return (
     <div className="text-lg mb-4 w-full">
       <div className="rounded-xl">
-        {/* {!data
-          ? "Hi, initiate me by searching something in the search bar, preferrably zip code"
-          : cardOutput()} */}
-        <div className="flex flex-col gap-6 text-center">
+        {!data ? (
+          <div className="flex flex-col gap-6 text-center bg-gray-800 rounded-xl w-full py-52 px-8">
+            Hi, initiate me by searching something in the search bar,
+            preferrably zip code
+          </div>
+        ) : (
+          cardOutput()
+        )}
+        {/* <div className="flex flex-col gap-6 text-center">
           <div className="flex flex-col justify-center lg:my-auto py-6 rounded-xl bg-gray-800">
             <div className="text-2xl font-semibold mb-10">
               Melbourne, Queensland,
@@ -154,7 +159,7 @@ const CurrentWeatherComponent = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -6,8 +6,6 @@ import { useRef } from "react";
 
 const DisplayBody = () => {
   const location = useSelector((state) => state.location.value);
-  const item1 = useRef();
-  const item2 = useRef();
   return (
     <div className="my-auto lg:w-2/3 rounded-xl px-4 py-4 mx-4 lg:mx-auto">
       {/* <ReduxSample /> */}

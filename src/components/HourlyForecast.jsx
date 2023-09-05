@@ -18,6 +18,7 @@ const HourlyForecast = () => {
         );
         const data = await response.json();
         console.log(data);
+        setForecastData(data);
       } catch (err) {
         console.log(err);
       }
@@ -26,12 +27,31 @@ const HourlyForecast = () => {
     // fetchApi(location);
   }, [location]);
 
+  // function hourlyOutput() {
+  //   if (forecastData !== null && forecastData) {
+  //     return forecastData.forecast.forecastday.map((item, idx) => (
+  //       <div
+  //         key={idx}
+  //         className="border-b-[0.5px] border-gray-700 text-center flex justify-between lg:py-12 py-4 w-11/12 m-auto"
+  //       >
+  //         <div className="my-auto w-1/3">{day}</div>
+  //         <div className="my-auto text-3xl w-1/3">
+  //           <img src={item.day.condition.icon} className="mx-auto" />
+  //         </div>
+  //         <div className="my-auto text-3xl w-1/3">{item.day.avgtemp_f}º</div>
+  //       </div>
+  //     ));
+  //   }
+  // }
+  // hourlyOutput();
+
   //   useEffect(() => {
   //     console.log(forecastData);
   //   }, [location]);
 
   return (
     <>
+      {forecastData ? hourlyOutput() : <div>Nothing to see here...</div>}
       <div className="bg-gray-800 rounded-xl">
         <div className="text-2xl text-center pt-4 font-semibold">
           Today's Weather
