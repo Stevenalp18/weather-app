@@ -54,7 +54,7 @@ const CurrentWeatherComponent = () => {
               <div className="m-auto lg:w-1/2 w-32 lg:w-28">
                 <img src={icon} className="my-auto w-full" />
               </div>
-              <div className="text-4xl lg:text-5xl my-auto lg:w-1/2">
+              <div className="text-4xl lg:text-5xl my-auto lg:w-1/2 z-10">
                 {Math.ceil(temp_f)}º
               </div>
             </div>
