@@ -1,30 +1,10 @@
-import { apiKey } from "../data/key";
-import { baseUrl } from "../data/data";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const HourlyForecast = () => {
   const location = useSelector((state) => state.location.value);
-  const [forecastData, setForecastData] = useState(null);
+  const weather = useSelector((state) => state.weather.data);
 
-  useEffect(() => {
-    // fetch(baseUrl + forecastApiExt + apiKey + queryApiExt + location)
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-    const fetchApi = async (location) => {
-      try {
-        const response = await fetch(baseUrl + location + "&days=5");
-        const data = await response.json();
-        console.log(data);
-        setForecastData(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    // fetchApi(location);
-  }, [location]);
-
+  console.log(weather);
   // function hourlyOutput() {
   //   if (forecastData !== null && forecastData) {
   //     return forecastData.forecast.forecastday.map((item, idx) => (
@@ -49,7 +29,7 @@ const HourlyForecast = () => {
 
   return (
     <>
-      {forecastData ? hourlyOutput() : <div>Nothing to see here...</div>}
+      {/* {forecastData ? hourlyOutput() : <div>Nothing to see here...</div>} */}
       <div className="bg-gray-800 rounded-xl">
         <div className="text-2xl text-center pt-4 font-semibold">
           Today's Weather

@@ -1,6 +1,7 @@
 // import ReduxSample from "./ReduxSample";
 import CurrentWeatherComponent from "./CurrentWeatherComponent";
 import HourlyForecast from "./HourlyForecast";
+import ThreeDayForecast from "./ThreeDayForecast";
 
 const DisplayBody = () => {
   return (
@@ -13,26 +14,7 @@ const DisplayBody = () => {
       </div> */}
       <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 lg:justify-around mb-2">
         <CurrentWeatherComponent />
-        <div className="w-full bg-gray-800 mb-4 py-8 rounded-xl">
-          <div className="text-center text-2xl">Weather Forecast</div>
-          <div className=" rounded-xl px-4 flex flex-col justify-center">
-            <div className="border-b-[0.5px] border-gray-700 text-center flex justify-between lg:py-12 py-4 w-11/12 m-auto">
-              <div className="my-auto w-1/3">Day 1</div>
-              <div className="my-auto text-3xl w-1/3">Sunny</div>
-              <div className="my-auto text-3xl w-1/3">56º</div>
-            </div>
-            <div className="border-b-[0.5px] border-gray-700 text-center flex justify-between lg:py-12 py-4 w-11/12 m-auto">
-              <div className="my-auto w-1/3">Day 2</div>
-              <div className="text-3xl w-1/3 ">Sunny</div>
-              <div className="text-3xl my-auto w-1/3">56º</div>
-            </div>
-            <div className="border-b-[0.5px] border-gray-700 text-center flex justify-between lg:py-12 py-4 w-11/12 m-auto">
-              <div className="my-auto w-1/3">Day 3</div>
-              <div className="text-3xl w-1/3 ">Sunny</div>
-              <div className="text-3xl my-auto w-1/3">56º</div>
-            </div>
-          </div>
-        </div>
+        <ThreeDayForecast />
       </div>
       <div>
         <HourlyForecast />
