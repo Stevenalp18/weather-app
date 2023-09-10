@@ -1,9 +1,6 @@
-export const baseUrl = "https://api.weatherapi.com/v1";
+import { apiKey } from "../data/key";
 
 export const searchApiExt = "/search.json?key=";
 
-export const currentApiExt = "/current.json?key=";
-
-export const forecastApiExt = "/forecast.json?key=";
-
-export const queryApiExt = "&q=";
+export const baseUrl =
+  "https://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=";

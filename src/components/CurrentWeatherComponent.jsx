@@ -1,37 +1,14 @@
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { apiKey } from "../data/key";
-import { currentApiExt, baseUrl, queryApiExt } from "../data/data";
 
 const CurrentWeatherComponent = () => {
   const location = useSelector((state) => state.location.value);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const weather = useSelector((state) => state.weather.data);
 
-  useEffect(() => {
-    const fecthApi = async (location) => {
-      try {
-        const response = await fetch(
-          `${baseUrl}${currentApiExt}${apiKey}${queryApiExt}${location}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setLoading(false);
-        setData(data);
-      } catch (error) {
-        setLoading(false);
-        console.log(err);
-      }
-    };
+  console.log(weather);
 
-    fecthApi(location);
-  }, [location]);
-
-  function cardOutput() {
-    if (data !== null && data) {
-      const { name, region, country } = data.location;
+  function currentWeatherData() {
+    if (weather !== null) {
+      const { name, region, country } = weather[0].location;
       const {
         temp_f,
         feelslike_f,
@@ -39,11 +16,11 @@ const CurrentWeatherComponent = () => {
         uv,
         precip_in,
         condition: { icon },
-      } = data.current;
+      } = weather[0].current;
       // let date = new Date(localtime);
+      // {date.toLocaleDateString("en-US")}
 
       return (
-        //     {date.toLocaleDateString("en-US")}
         <div className="flex flex-col gap-4 text-center">
           <div className="flex flex-col justify-center lg:my-auto py-8 rounded-xl bg-gray-800">
             <div className="text-2xl font-semibold m6-10">
@@ -100,20 +77,16 @@ const CurrentWeatherComponent = () => {
     }
   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="text-lg mb-4 w-full">
       <div className="rounded-xl">
-        {!data ? (
+        {!weather ? (
           <div className="flex flex-col gap-6 text-center bg-gray-800 rounded-xl w-full py-52 px-8">
             Hi, initiate me by searching something in the search bar,
             preferrably zip code
           </div>
         ) : (
-          cardOutput()
+          currentWeatherData()
         )}
         {/* <div className="flex flex-col gap-6 text-center">
           <div className="flex flex-col justify-center lg:my-auto py-6 rounded-xl bg-gray-800">

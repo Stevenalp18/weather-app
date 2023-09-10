@@ -1,11 +1,28 @@
-import { useDispatch } from "react-redux";
+import { useEffect, useRef } from "react";
+import { baseUrl } from "../data/data";
 import { updateLocation } from "../redux/location/locationSlice";
-import { useRef } from "react";
+import { updateWeather } from "../redux/weather/weatherSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
+  const location = useSelector((state) => state.location.value);
   const locationInput = useRef();
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const response = await fetch(
+          baseUrl + location + "&days=3&aqi=no&alerts=no"
+        );
+        const processedResponse = await response.json();
+        dispatch(updateWeather(processedResponse));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchApi();
+  }, [location]);
 
   return (
     <>

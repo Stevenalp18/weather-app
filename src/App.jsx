@@ -5,7 +5,7 @@ import AlertModalWIP from "./components/AlertModalWIP";
 function App() {
   return (
     <>
-      <AlertModalWIP />
+      {/* <AlertModalWIP /> */}
       <Header />
       <DisplayBody />
     </>
@@ -13,8 +13,3 @@ function App() {
 }
 
 export default App;
-
-// API's Accepted:
-// SearchApi
-// CurrentApi
-// ForecastApi

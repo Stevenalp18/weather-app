@@ -1,5 +1,5 @@
 import { apiKey } from "../data/key";
-import { baseUrl, forecastApiExt, queryApiExt } from "../data/data";
+import { baseUrl } from "../data/data";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -13,9 +13,7 @@ const HourlyForecast = () => {
     //   .then((data) => console.log(data));
     const fetchApi = async (location) => {
       try {
-        const response = await fetch(
-          baseUrl + forecastApiExt + apiKey + queryApiExt + location + "&days=5"
-        );
+        const response = await fetch(baseUrl + location + "&days=5");
         const data = await response.json();
         console.log(data);
         setForecastData(data);
