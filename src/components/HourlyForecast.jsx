@@ -6,6 +6,13 @@ const HourlyForecast = () => {
   const renderHourlyWeather = () => {
     if (weather !== null) {
       const hours = [8, 11, 14, 17, 20];
+      const hoursSelected = [
+        "6:00 am",
+        "9:00 am",
+        "12:00 pm",
+        "3:00 pm",
+        "6:00 pm",
+      ];
       const filteredWeatherArr = weather[0].forecast.forecastday[0].hour.filter(
         (item, idx) => {
           for (let i = 0; i < hours.length; i++) {
@@ -15,7 +22,7 @@ const HourlyForecast = () => {
           }
         }
       );
-      return filteredWeatherArr.map((item) => {
+      return filteredWeatherArr.map((item, idx) => {
         const {
           condition: { icon },
           temp_f,
@@ -23,7 +30,9 @@ const HourlyForecast = () => {
         return (
           <>
             <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-              <div className="my-auto w-1/3 lg:w-full text-lg">9:00 am</div>
+              <div className="my-auto w-1/3 lg:w-full text-lg">
+                {hoursSelected[idx]}
+              </div>
               <div className=" w-1/3 lg:w-full">
                 <img className="m-auto" src={icon} alt="Weather Icon" />
               </div>
@@ -46,7 +55,11 @@ const HourlyForecast = () => {
           Today's Weather
         </div>
         <div className="flex flex-col lg:flex-row p-4 w-full">
-          {weather !== null ? renderHourlyWeather() : <></>}
+          {weather !== null ? (
+            renderHourlyWeather()
+          ) : (
+            <div className="text-center text-xl mt-4">Search Something...</div>
+          )}
         </div>
       </div>
     </>

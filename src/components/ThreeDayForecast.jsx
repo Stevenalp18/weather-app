@@ -41,7 +41,7 @@ const ThreeDayForecast = () => {
       <div className="text-center text-2xl">Weather Forecast</div>
       <div className=" rounded-xl px-4 flex flex-col justify-center h-full">
         {weather === null ? (
-          <div className="text-center text-2xl">Loading...</div>
+          <div className="text-center text-xl mt-4">Search Something...</div>
         ) : (
           renderForecast()
         )}
