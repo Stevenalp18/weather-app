@@ -1,70 +1,52 @@
 import { useSelector } from "react-redux";
 
 const HourlyForecast = () => {
-  const location = useSelector((state) => state.location.value);
   const weather = useSelector((state) => state.weather.data);
 
-  console.log(weather);
-  // function hourlyOutput() {
-  //   if (forecastData !== null && forecastData) {
-  //     return forecastData.forecast.forecastday.map((item, idx) => (
-  //       <div
-  //         key={idx}
-  //         className="border-b-[0.5px] border-gray-700 text-center flex justify-between lg:py-12 py-4 w-11/12 m-auto"
-  //       >
-  //         <div className="my-auto w-1/3">{day}</div>
-  //         <div className="my-auto text-3xl w-1/3">
-  //           <img src={item.day.condition.icon} className="mx-auto" />
-  //         </div>
-  //         <div className="my-auto text-3xl w-1/3">{item.day.avgtemp_f}º</div>
-  //       </div>
-  //     ));
-  //   }
-  // }
-  // hourlyOutput();
-
-  //   useEffect(() => {
-  //     console.log(forecastData);
-  //   }, [location]);
+  const renderHourlyWeather = () => {
+    if (weather !== null) {
+      const hours = [8, 11, 14, 17, 20];
+      const filteredWeatherArr = weather[0].forecast.forecastday[0].hour.filter(
+        (item, idx) => {
+          for (let i = 0; i < hours.length; i++) {
+            if (hours[i] === idx) {
+              return [].push(item);
+            }
+          }
+        }
+      );
+      return filteredWeatherArr.map((item) => {
+        const {
+          condition: { icon },
+          temp_f,
+        } = item;
+        return (
+          <>
+            <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
+              <div className="my-auto w-1/3 lg:w-full text-lg">9:00 am</div>
+              <div className=" w-1/3 lg:w-full">
+                <img className="m-auto" src={icon} alt="Weather Icon" />
+              </div>
+              <div className=" my-auto w-1/3 lg:w-full text-3xl">
+                {Math.floor(temp_f)}º
+              </div>
+            </div>
+          </>
+        );
+      });
+    } else {
+      return "Weather data not found";
+    }
+  };
 
   return (
     <>
-      {/* {forecastData ? hourlyOutput() : <div>Nothing to see here...</div>} */}
       <div className="bg-gray-800 rounded-xl">
         <div className="text-2xl text-center pt-4 font-semibold">
           Today's Weather
         </div>
         <div className="flex flex-col lg:flex-row p-4 w-full">
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">6:00 am</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">9:00 am</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">12:00 pm</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">3:00 pm</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">6:00 pm</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
-          <div className="border-b-[0.5px] lg:border-r-[0.5px] border-gray-700 lg:border-0 text-center py-6 w-11/12 m-auto flex flex-row lg:flex-col gap-4">
-            <div className="my-auto w-1/3 lg:w-full">9:00 pm</div>
-            <div className=" w-1/3 lg:w-full">Sun</div>
-            <div className=" my-auto w-1/3 lg:w-full">56º</div>
-          </div>
+          {weather !== null ? renderHourlyWeather() : <></>}
         </div>
       </div>
     </>

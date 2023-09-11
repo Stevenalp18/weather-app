@@ -1,10 +1,7 @@
 import { useSelector } from "react-redux";
 
 const CurrentWeatherComponent = () => {
-  const location = useSelector((state) => state.location.value);
   const weather = useSelector((state) => state.weather.data);
-
-  console.log(weather);
 
   function currentWeatherData() {
     if (weather !== null) {
@@ -17,8 +14,6 @@ const CurrentWeatherComponent = () => {
         precip_in,
         condition: { icon },
       } = weather[0].current;
-      // let date = new Date(localtime);
-      // {date.toLocaleDateString("en-US")}
 
       return (
         <div className="flex flex-col gap-4 text-center">
@@ -88,51 +83,6 @@ const CurrentWeatherComponent = () => {
         ) : (
           currentWeatherData()
         )}
-        {/* <div className="flex flex-col gap-6 text-center">
-          <div className="flex flex-col justify-center lg:my-auto py-6 rounded-xl bg-gray-800">
-            <div className="text-2xl font-semibold mb-10">
-              Melbourne, Queensland,
-              <br />
-              Australia
-            </div>
-            <div className="flex justify-evenly w-11/12 m-auto">
-              <div className="text-5xl my-auto">48º</div>
-              <div className="text-4xl my-auto">Sun</div>
-            </div>
-          </div>
-          <div className="rounded-xl bg-gray-800 px-4 py-6 ">
-            <div className="text-2xl font-semibold mb-10">
-              Weather Conditions
-            </div>
-            <div className="flex flex-wrap gap-4 m-auto justify-evenly pb-4">
-              <div className="w-1/3 flex gap-4 justify-start">
-                <i className="fa-solid fa-temperature-three-quarters fa-xl my-auto" />
-                <div className="my-auto text-xl text-left">
-                  Feels like: <span className="text-2xl font-semibold">48</span>
-                </div>
-              </div>
-              <div className="w-1/3 flex gap-4 justify-start">
-                <i className="fa-solid fa-wind fa-xl my-auto"></i>
-                <div className="my-auto text-xl text-left">
-                  Wind: <span className="text-2xl font-semibold">12mph</span>
-                </div>
-              </div>
-              <div className="w-1/3 flex gap-4 justify-start">
-                <i className="fa-solid fa-droplet fa-xl my-auto"></i>
-                <div className="my-auto text-xl text-left">
-                  Chance of Rain:{" "}
-                  <span className="text-2xl font-semibold">20%</span>
-                </div>
-              </div>
-              <div className="w-1/3 flex gap-4 justify-start">
-                <i className="fa-solid fa-sun fa-xl my-auto" />
-                <div className="my-auto text-xl text-left">
-                  UV Index: <span className="text-2xl font-semibold">20</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

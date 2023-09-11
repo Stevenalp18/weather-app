@@ -5,7 +5,7 @@ import AlertModalWIP from "./components/AlertModalWIP";
 function App() {
   return (
     <>
-      {/* <AlertModalWIP /> */}
+      <AlertModalWIP />
       <Header />
       <DisplayBody />
     </>
